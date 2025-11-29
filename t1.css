@@ -1,0 +1,603 @@
+/* ================= 1. 基础重置与通用样式 ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    background-color: white;
+    /* 整体灰背景 */
+    color: #333;
+    font-size: 14px;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: #27BA9B;
+    /* 主题绿 */
+}
+
+/* 版心：控制内容宽度居中 */
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 价格颜色 */
+.price,
+.goods .bd div,
+.section-bd div {
+    color: #cf4444;
+    font-size: 20px;
+}
+
+.price span,
+.goods .bd span,
+.section-bd span {
+    font-size: 22px;
+}
+
+/* ================= 手机版图标特殊样式 ================= */
+
+/* 1. 选中“手机版”所在的 a 标签 (假设它是 shortcut 列表的最后一项) */
+.shortcut li:last-child a {
+    display: flex;
+    /* 开启弹性布局 */
+    align-items: center;
+    /* 让内部的图片和文字垂直居中 */
+    height: 52px;
+    /* 继承导航栏的高度 */
+}
+
+/* 2. 设置图标的大小和间距 */
+.shortcut li:last-child img {
+    width: 13px;
+    /* 限制图标宽度，根据你的图片实际大小微调 */
+    height: auto;
+    /* 高度自适应 */
+    margin-right: 6px;
+    /* 图标与“手机版”文字之间的距离 */
+    margin-bottom: 2px;
+    /* 如果感觉图标偏高，可以加一点下边距微调 */
+    vertical-align: middle;
+    /* 辅助对齐 */
+}
+
+/* 3. 如果需要调整“手机版”这几个字的颜色或悬停效果，使用之前的 .shortcut a 即可 */
+.shortcut li:last-child a:hover {
+    color: #27BA9B;
+    /* 保持悬停变绿的效果 */
+}
+
+/* ================= 2. 顶部快捷导航 (Shortcut) ================= */
+.shortcut {
+    height: 52px;
+    background-color: #333;
+    line-height: 52px;
+}
+
+.shortcut .wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.shortcut ul {
+    display: flex;
+}
+
+.shortcut li {
+    padding: 0 16px;
+    border-right: 1px solid #666;
+}
+
+.shortcut li:last-child {
+    border-right: none;
+}
+
+.shortcut a {
+    color: #dcdcdc;
+    font-size: 14px;
+}
+
+.shortcut a:hover {
+    color: #27BA9B;
+}
+
+/* ================= 3. 头部区域 (Header) ================= */
+.header {
+    height: 130px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    /* 假设logo大小，根据实际图片调整 */
+    display: block;
+    width: 100%;
+}
+
+.nav {
+    margin-left: 40px;
+    flex: 1;
+}
+
+.nav ul {
+    display: flex;
+}
+
+.nav li {
+    margin-right: 40px;
+}
+
+.nav a {
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.nav a:hover {
+    border-bottom: 2px solid #27BA9B;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 170px;
+    height: 32px;
+    border-bottom: 1px solid #e7e7e7;
+    margin-right: 15px;
+}
+
+.search input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+}
+
+.car {
+    position: relative;
+    margin-top: 5px;
+}
+
+.car i {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #e26237;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 10px;
+    font-style: normal;
+}
+
+/* ================= 4. 轮播图与侧边栏 (Banner) ================= */
+.banner {
+    height: 500px;
+    background-color: #f5f5f5;
+}
+
+.banner .wrapper {
+    height: 500px;
+    position: relative;
+}
+
+/* 左侧黑色侧边栏 */
+.aside {
+    width: 250px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.aside li {
+    height: 50px;
+    line-height: 50px;
+}
+
+.aside li:hover {
+    background-color: #27BA9B;
+}
+
+.aside a {
+    display: block;
+    color: #fff;
+    padding-left: 35px;
+    font-size: 16px;
+}
+
+.aside a span {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* 轮播图内容 */
+.banner-content {
+    width: 100%;
+    height: 500px;
+}
+
+.banner-content .slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* 轮播图圆点 */
+.banner-content ol {
+    position: absolute;
+    bottom: 20px;
+    left: 600px;
+    /* 稍微居中调整 */
+    display: flex;
+}
+
+.banner-content ol li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.banner-content ol li.current {
+    background: #fff;
+}
+
+/* ================= 5. 公共标题样式 (HD) ================= */
+.goods .hd,
+.popularity .hd,
+.popular .hd,
+.goods-section .section-hd,
+.topic_goods .hd {
+    height: 115px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hd h2,
+.section-hd h2 {
+    font-size: 29px;
+    font-weight: normal;
+}
+
+.hd h2 span,
+.section-hd h2 span {
+    font-size: 16px;
+    color: #999;
+    margin-left: 20px;
+}
+
+.view-all-link {
+    color: #999;
+}
+
+.view-all-link i {
+    margin-left: 5px;
+}
+
+/* ================= 6. 新鲜好物 (Goods) ================= */
+.goods .bd ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods .bd li {
+    width: 304px;
+    height: 405px;
+    background-color: #fff;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.goods .bd li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.goods .bd img {
+    width: 304px;
+    margin-top: 20px;
+}
+
+.goods .bd h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+/* ================= 7. 人气推荐 (Popularity) ================= */
+.popularity .bd ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popularity .bd li {
+    width: 304px;
+    height: 405px;
+    /* 保持一致高度 */
+    background-color: #fff;
+    text-align: center;
+}
+
+.popularity .bd img {
+    width: 304px;
+    height: 304px;
+    object-fit: contain;
+}
+
+.popularity h3 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* ================= 8. 热门品牌 (Popular) ================= */
+.popular .bd ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popular li {
+    width: 244px;
+    height: 306px;
+    background: #fff;
+}
+
+.popular img {
+    width: 100%;
+    height: 100%;
+}
+
+.popular a.left {
+    margin-left: 800px;
+
+}
+
+/* ================= 9. 生鲜/居家/服装 分区 (Goods Section) ================= */
+/* 头部导航微调 */
+.section-hd ul {
+    display: flex;
+    margin-left: auto;
+    /* 靠右 */
+    margin-right: 40px;
+}
+
+.section-hd li {
+    margin: 0 10px;
+}
+
+.section-hd li a {
+    padding: 2px 10px;
+}
+
+.section-hd li a:hover {
+    background: #27BA9B;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* 分区布局：左大图 右列表 */
+.section-bd {
+    display: flex;
+}
+
+.section-left {
+    width: 240px;
+    height: 610px;
+    margin-right: 10px;
+}
+
+.section-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.section-left:hover img {
+    transform: scale(1.02);
+}
+
+.section-right {
+    width: 990px;
+}
+
+.section-right ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.section-right li {
+    width: 240px;
+    height: 300px;
+    background: #fff;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+/* 处理右边距：每行第4个去掉右边距，或者用justify-content space-between */
+.section-right li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.section-right li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-right img {
+    width: 160px;
+    height: 160px;
+}
+
+.section-right p {
+    font-size: 16px;
+    margin: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 找相似/年货 标签 */
+.section-right p:last-of-type {
+    color: #999;
+    font-size: 14px;
+}
+
+/* ================= 10. 最新专题 (Topic) ================= */
+.topic_goods .bd ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topic_goods li {
+    width: 405px;
+    height: 355px;
+    background: #fff;
+    transition: all 0.5s;
+}
+
+.topic_goods li:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topic_goods img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= 11. 底部服务与页脚 (Footer) ================= */
+.service {
+    padding: 60px 0;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    margin-top: 40px;
+}
+
+.service ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.service li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px;
+}
+
+.service img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+/* 页脚链接区 */
+.footer {
+    background-color: #fff;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #666;
+}
+
+/* 二维码区 */
+.footer-apps {
+    display: flex;
+}
+
+.app-item {
+    text-align: center;
+    margin-left: 40px;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.app-item img {
+    width: 80px;
+    height: 80px;
+    display: block;
+}
+
+.app-item p {
+    margin-top: 5px;
+    color: #666;
+}
+
+/* 底部导航与版权 */
+.footer-nav {
+    text-align: center;
+    margin-bottom: 20px;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 30px;
+}
+
+.footer-nav a {
+    margin: 0 10px;
+    color: #999;
+}
+
+.copyright {
+    text-align: center;
+    color: #999;
+}
